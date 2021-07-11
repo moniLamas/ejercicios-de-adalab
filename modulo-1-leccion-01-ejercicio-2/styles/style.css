@@ -1,0 +1,18 @@
+html {
+    background-color: #f3f4f5;
+    font-family: monospace;
+    color: #757575;
+    font-size: 18px; 
+    padding: 10px;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size:  24px;
+    color: black;
+}
+
+h3 {
+    font-family: sans-serif;
+    color: black;
+}
