@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    border: 1px solid black;
+    width: 1000px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+        
+}
+
+.item {
+    background-color: blueviolet;
+    border: 1px solid blue;
+    width: 200px;
+    height: 100px;
+}
