@@ -1,7 +1,21 @@
 .header {
     background-color: black;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
 }
 
-.nav-bar img {
-    height: 35px;
+
+.header .nav-bar {
+    height: 30px;
+}
+.logo, .menu {
+    padding: 4px;
+    height: 25px;
+}
+
+.hero {
+    height: 50vh;
+    background-color: cornflowerblue;
 }
