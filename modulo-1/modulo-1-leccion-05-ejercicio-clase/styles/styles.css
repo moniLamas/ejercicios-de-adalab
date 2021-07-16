@@ -1,0 +1,18 @@
+.menu {
+    padding: 12px;
+    position:absolute;
+    top: 10px;
+    right: 10px;
+
+
+}
+
+.item {
+    display: inline-block;
+    background-color: lightgreen;
+    padding: 5px;
+}
+
+.item:hover {
+    background-color: lightpink;
+}
