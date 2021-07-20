@@ -1,0 +1,10 @@
+:root {
+    --brand-color: #CC212A;
+    --brand-font: 'Montserrat', sans-serif;
+    
+}
+
+.container {
+    font-family: var(--brand-font);
+    color: var(--brand-font);
+}
