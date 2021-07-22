@@ -1,7 +1,22 @@
+/* 
+Color del texto de #414141 a #010101;
+Tamaño de fuente de la página a 18px
+El margen de .wrapper a 0 60px
+Fondo de header y footer a yellow
+Alto de header y footer a 50px
+Fondo de .main a cyan
+ */
+
+
 $color: #414141;
 $font_family: arial, sans-serif;
-$font_size: 16px;
-
+$font_size: 18px;
+$background_header: yellow; 
+$height_header: 100px;
+$background_header: #aaa;
+$background_main: cyan;
+$background_footer: yellow;
+$height_footer: 100px
 
 
 body {
@@ -16,13 +31,13 @@ body {
   margin: 0 40px;
 }
 .header {
-  background: lightgrey; /* Pasar a variable */
-  height: 100px; /* Pasar a variable */
+  background: $background_header; /* Pasar a variable */
+  height: $height_header; /* Pasar a variable */
   padding: 10px 0;
   box-sizing: border-box;
 }
 .main {
-  background: #aaa; /* Pasar a variable */
+  background: $background_main; /* Pasar a variable */
   flex: 1;
 }
 .main__title {
@@ -34,8 +49,8 @@ body {
   line-height: 140%;
 }
 .footer {
-  background: lightgrey; /* Pasar a variable */
-  height: 100px; /* Pasar a variable */
+  background: $background_footer; /* Pasar a variable */
+  height: $height_footer; /* Pasar a variable */
   padding: 10px 0;
   box-sizing: border-box;
 }
