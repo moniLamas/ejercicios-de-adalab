@@ -1,3 +1,4 @@
 'use strict';
 
-const paragraphElement = document.querySelector('.hello');
+let paragraphElement = document.querySelector('.hello');
+paragraphElement.innerHTML = paragraphElement.innerHTML + ' Mundo';
