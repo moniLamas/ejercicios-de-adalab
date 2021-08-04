@@ -1,3 +1,3 @@
 'use strict';
 
-document.queruSelector('h1').innerHTML = '¡Hola mundo!';
+document.querySelector('h1').innerHTML = '¡Hola mundo!';
