@@ -2,5 +2,5 @@
 
 const name = 'Mónica Lamas Rial';
 
-console.log(name.length);
+console.log('Mi nombre tiene '+ name.length +' letras');
 
