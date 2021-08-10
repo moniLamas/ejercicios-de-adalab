@@ -3,8 +3,12 @@
 // debugger;
 
 
-const button = document.querySelector('.js-btn');
-const name = document.querySelector('.name');
+const button = document.querySelector(".js-btn");
 
-button.addEventListener('click', () => console.log('Hola ${name}'));
+function sayHi() {
+const name = document.querySelector(".name").value;
+console.log(`Hola ${name}`)
+}
+
+button.addEventListener("click", sayHi);
 
