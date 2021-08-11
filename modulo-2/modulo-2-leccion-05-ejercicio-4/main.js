@@ -1,8 +1,18 @@
 'use strict';
 
-// debugger;
+const container = document.querySelector('.container');
 
-const background = document.querySelector('.main');
+function scrollScreen() {
+    const scrollY = window.scrollY
+    
+    if (scrollY >= 250) {
+        container.classList.remove('pink')
+        container.classList.add('red')
+    } else {
+        container.classList.remove('red')
+        container.classList.add('pink')
+    }
+    
+}
 
-background.addEventListener('window.scollY', () =>  )
-
+window.addEventListener('scroll', scrollScreen )
