@@ -4,6 +4,5 @@
 
 const backgroundPage = document.querySelector('.page');
 
-backgroundPage.addEventListener('event.key', () => {
-    
-})
+const keyR = backgroundPage.addEventListener('event.key', )
+
