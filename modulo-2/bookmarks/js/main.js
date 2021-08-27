@@ -2,4 +2,8 @@
 
 const menuDropdown = document.querySelector(".js_menu_dropdown");
 
-menuDropdown.classList.remove('collapsed');
+menuDropdown.classList.toggle('collapsed');
+
+const newForm = document.querySelector(".js_addNew");
+
+newForm.classList.toggle('hidden');
