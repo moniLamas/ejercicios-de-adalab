@@ -11,13 +11,13 @@
 // ~1. Traer el <span> con el texto original a una constante.~
 // ~2. Traer el <span> donde se escribirá el texto modificado.~
 // ~3. Obtener el texto que contiene.~
-// 4. Transformar el texto a mayúsculas.
-// 5. Poner el texto transformado en el <span> destino.
+// ~4. Transformar el texto a mayúsculas.
+// ~5. Poner el texto transformado en el <span> destino.
 
-const origin = document.querySelector('.js_origin');
-const target = document.querySelector('.js_target');
+const origin = document.querySelector('.js_origin'); // ~1.
+const target = document.querySelector('.js_target'); // ~2.
 
-const text = origin.innerHTML;
-const upperText = text.toUpperCase();
+const text = origin.innerHTML; // ~3.
+const upperText = text.toUpperCase(); // ~4.
 
-target.innerHTML = upperText;
+target.innerHTML = upperText; // ~5.
