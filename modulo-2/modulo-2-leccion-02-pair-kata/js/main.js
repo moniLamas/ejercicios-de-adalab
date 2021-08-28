@@ -21,3 +21,6 @@ const text = origin.innerHTML; // ~3.
 const upperText = text.toUpperCase(); // ~4.
 
 target.innerHTML = upperText; // ~5.
+
+/* document.querySelector('.js_target').innerHTML =
+  document.querySelector('.js_origin').innerHTML.toLocaleUpperCase(); */
