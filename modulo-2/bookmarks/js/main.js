@@ -64,8 +64,8 @@ html += `
 const bmk_3_url = 'https://books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-1-html-y-css/1_1_intro_a_la_web';
 const bmk_3_desc = 'HTML en los materiales de Adalab';
 const bmk_3_seen = 'checked';
-const bmk_3_tag_1 = 'HTML';
-const bmk_3_tag_2 = 'CSS';
+const bmk_3_tag_1 = 'html';
+const bmk_3_tag_2 = 'css';
 
 html += `
     <li class="data__listitem">
