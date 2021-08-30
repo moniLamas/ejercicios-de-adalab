@@ -1,9 +1,14 @@
 'use strict';
 
 const menuDropdown = document.querySelector(".js_menu_dropdown");
-const boardData = document.querySelector('.js_boardData');
+const linkDropdown = document.querySelector(".js_link_dropdown");
 const listData = document.querySelector(".js_list_data");
+const boardData = document.querySelector('.js_boardData');
 const newForm = document.querySelector(".js_addNew");
+const buttomShowAdd = document.querySelector(".js_button_add");
+const buttomShowCardview = document.querySelector(".js_cardview_button");
+const buttomShowTableview = document.querySelector(".js_tableview_button");
+
 
 const bmk_1_url = 'https://books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-2-programando-la-web/javascript/2_1_intro_a_la_programacion';
 const bmk_1_desc = 'JS en los materiales de Adalab';
@@ -22,6 +27,8 @@ const bmk_3_desc = 'HTML en los materiales de Adalab';
 const bmk_3_seen = 'checked';
 const bmk_3_tag_1 = 'html';
 const bmk_3_tag_2 = 'css';
+
+//FUNCIONES
 
 function renderTags(tag_1, tag_2) {
     let htmlTags = `
@@ -95,15 +102,10 @@ function setTableView() {
     boardData.classList.add('tableview');
 }
 
-setCardListView();
-setTableView();
-
 //Mostrar/ocultar drop down menu de la hamburguesa
 function toggleDropDownMenu() {
     menuDropdown.classList.toggle('collapsed');
 }
-
-toggleDropDownMenu();
 
 
 // Mostrar/ocultar añadir nuevo
@@ -112,4 +114,31 @@ function addNew() {
     newForm.classList.remove('hidden');
 };
 
-addNew();
+
+
+//EVENTOS
+function handleClickLinkDropdown(event) {
+    event.preventDefault();
+    toggleDropDownMenu();
+}
+
+linkDropdown.addEventListener('click', handleClickLinkDropdown);
+
+function handleClickShowCardview(event) {
+    event.preventDefault();
+    setCardListView();
+    buttomShowTableview.classList.remove('selected');
+    buttomShowCardview.classList.add('selected');
+}
+
+function handleClickShowTableview(event) {
+    event.preventDefault();
+    setTableView();
+    buttomShowCardview.classList.remove('selected');
+    buttomShowTableview.classList.add('selected');
+}
+
+buttomShowCardview.addEventListener('click', handleClickShowCardview);
+buttomShowTableview.addEventListener('click', handleClickShowTableview);
+
+buttomShowAdd.addEventListener('click', addNew);
