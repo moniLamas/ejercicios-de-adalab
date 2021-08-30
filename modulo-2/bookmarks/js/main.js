@@ -5,10 +5,7 @@ const newForm = document.querySelector(".js_addNew");
 const boardData = document.querySelector('.js_boardData');
 const listData = document.querySelector(".js_list_data");
 
-//Mostrar/ocultar menu hamburguesa
-menuDropdown.classList.toggle('collapsed');
-//Mostrar/ocultar añadir nuevo
-newForm.classList.toggle('hidden');
+
 
 const bmk_1_url = 'https://books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-2-programando-la-web/javascript/2_1_intro_a_la_programacion';
 const bmk_1_desc = 'JS en los materiales de Adalab';
@@ -93,6 +90,12 @@ listData.innerHTML = html;
 
 //Mostrar vista de tarjetas: lista o tarjetas
 
+/* if (boardData.classList.contains('tableview')) {
+    setCardListView();
+} else if (boardData.classList.contains('listview')) {
+    setTableView();
+}*/
+
 function setCardListView() {
     boardData.classList.remove('tableview');
     boardData.classList.add('listview');
@@ -106,8 +109,18 @@ function setTableView() {
 setCardListView();
 setTableView();
 
-// if (boardData.classList.contains('tableview')) {
-//     setCardListView();
-// } else if (boardData.classList.contains('listview')) {
-//     setTableView();
-// }
+function showDropDownMenu() {
+    menuDropdown.classList.remove('collapsed');
+}
+
+function hideDropDownMenu() {
+    newForm.classList.add('collapsed');
+}
+
+showDropDownMenu();
+hideDropDownMenu();
+
+/*Mostrar/ocultar menu hamburguesa
+    menuDropdown.classList.toggle('collapsed');
+Mostrar/ocultar añadir nuevo
+    newForm.classList.toggle('hidden'); */
