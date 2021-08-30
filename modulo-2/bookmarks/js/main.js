@@ -2,6 +2,7 @@
 
 const menuDropdown = document.querySelector(".js_menu_dropdown");
 const newForm = document.querySelector(".js_addNew");
+const boardData = document.querySelector('.js_boardData');
 const listData = document.querySelector(".js_list_data");
 
 //Mostrar/ocultar menu hamburguesa
@@ -92,12 +93,21 @@ listData.innerHTML = html;
 
 //Mostrar vista de tarjetas: lista o tarjetas
 
-const boardData = document.querySelector('.js_boardData');
-
-if (boardData.classList.contains('tableview')) {
+function setCardListView() {
     boardData.classList.remove('tableview');
     boardData.classList.add('listview');
-} else if (boardData.classList.contains('listview')) {
+}
+
+function setTableView() {
     boardData.classList.remove('listview');
     boardData.classList.add('tableview');
 }
+
+setCardListView();
+setTableView();
+
+// if (boardData.classList.contains('tableview')) {
+//     setCardListView();
+// } else if (boardData.classList.contains('listview')) {
+//     setTableView();
+// }
