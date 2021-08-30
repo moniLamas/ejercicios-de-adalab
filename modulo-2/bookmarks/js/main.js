@@ -89,3 +89,15 @@ html += `
 
 
 listData.innerHTML = html;
+
+//Mostrar vista de tarjetas: lista o tarjetas
+
+const boardData = document.querySelector('.js_boardData');
+
+if (boardData.classList.contains('tableview')) {
+    boardData.classList.remove('tableview');
+    boardData.classList.add('listview');
+} else if (boardData.classList.contains('listview')) {
+    boardData.classList.remove('listview');
+    boardData.classList.add('tableview');
+}
