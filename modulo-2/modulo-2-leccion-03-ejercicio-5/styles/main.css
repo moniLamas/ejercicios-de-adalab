@@ -1,10 +1,10 @@
 
 .message {
-    height: 60px;
+    height: 300px;
     text-align: center;
 }
 
-.success {
+.successe {
     border: 1px solid green;
     background-color: greenyellow;
     color: green;
