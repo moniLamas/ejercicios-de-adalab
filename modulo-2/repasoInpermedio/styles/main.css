@@ -1,6 +1,9 @@
-.container {
+* {
     margin: 0;
     padding: 0;
+}
+
+.container {
     height: 100vh;
     width: 100%;
     background-color: #ffcc00;
@@ -12,6 +15,14 @@
 
 .face {
     font-size: 90px;
+}
+
+.backgroundYellow {
+    background-color: #ffcc00;
+}
+
+.backgroundOrange {
+    background-color: #ff9900;
 }
 
 
