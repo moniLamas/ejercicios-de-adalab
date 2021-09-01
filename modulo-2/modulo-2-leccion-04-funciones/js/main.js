@@ -5,11 +5,7 @@ function saludar(nombre) {
     elemSaludo.innerHTML += `<p>Hola ${nombre}</p>`;
 }
 
-saludar('Ana');
-saludar('Clara');
-saludar('Daniela');
-saludar('Irene');
-saludar('Paloma');
+
 
 //Variables
 const inputName = document.querySelector('.js_name');
