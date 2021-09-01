@@ -10,23 +10,28 @@ const buttomShowCardview = document.querySelector(".js_cardview_button");
 const buttomShowTableview = document.querySelector(".js_tableview_button");
 
 
-const bmk_1_url = 'https://books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-2-programando-la-web/javascript/2_1_intro_a_la_programacion';
-const bmk_1_desc = 'JS en los materiales de Adalab';
-const bmk_1_seen = 'checked';
-const bmk_1_tag_1 = 'javascript';
-const bmk_1_tag_2 = '';
+const bmkData_1 = {
+    url: 'https://books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-2-programando-la-web/javascript/2_1_intro_a_la_programacion',
+    desc: 'JS en los materiales de Adalab',
+    seen: true,
+    tags_1: 'javascript',
+    tags_2: ''
+};
 
-const bmk_2_url = 'https://thesmartcoder.dev/9-awesome-projects-you-can-build-with-vanilla-javascript/';
-const bmk_2_desc = 'Ideas de proyectos JS';
-const bmk_2_seen = 'checked';
-const bmk_2_tag_1 = '';
-const bmk_2_tag_2 = '';
+const bmkData_2 = {
+    url: 'https://thesmartcoder.dev/9-awesome-projects-you-can-build-with-vanilla-javascript/',
+    desc: 'Ideas de proyectos JS',
+    seen: true,
+    tags_1: '',
+    tags_2: ''
+}
 
-const bmk_3_url = 'https://books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-1-html-y-css/1_1_intro_a_la_web';
-const bmk_3_desc = 'HTML en los materiales de Adalab';
-const bmk_3_seen = 'checked';
-const bmk_3_tag_1 = 'html';
-const bmk_3_tag_2 = 'css';
+const bmkData_3 = {};
+bmkData_3.url = 'https://books.adalab.es/materiales-del-curso-n/-MdR6Gp68BX20m1pi0z2/modulo-1-html-y-css/1_1_intro_a_la_web';
+bmkData_3.desc = 'HTML en los materiales de Adalab';
+bmkData_3.seen = false;
+bmkData_3.tags_1 = 'html';
+bmkData_3.tags_2 = 'css';
 
 //FUNCIONES
 
@@ -51,23 +56,32 @@ function renderTags(tag_1, tag_2) {
     return htmlTags;
 }
 
+function renderSeen(seen) {
+    if (seen) {
+        return 'checked title="Enlace leído"';
+    } else {
+        return 'title="Por leer"';
+    }
+}
 
-function renderBookmark(url, desc, seen, tag_1, tag_2) {
-    const htmlTags = renderTags(tag_1, tag_2);
+
+function renderBookmark(bmkData) {
+    const htmlTags = renderTags(bmkData.tags_1, bmkData.tags_2);
+    const htmlSeen = renderSeen(bmkData.seen);
 
     const htmlBookmarks = `
         <li class="data__listitem">
             <article class="data__item">
                 <p class="item__url">
-                    <a href="${url}"
+                    <a href="${bmkData.url}"
                 target="_blank" rel="noopener noreferrer">
-                ${url}
+                ${bmkData.url}
                     </a>
                 </p>
                 <p class="item__seen">
-                    <input type="checkbox" ${seen} name="item_imp_2" id="item_imp_2">
+                    <input type="checkbox" ${htmlSeen} name="item_imp_2" id="item_imp_2">
                 </p>
-                <p class="item__desc">${desc}</p>
+                <p class="item__desc">${bmkData.desc}</p>
                 
                 ${htmlTags}
                 
@@ -77,9 +91,9 @@ function renderBookmark(url, desc, seen, tag_1, tag_2) {
     return htmlBookmarks;
 }
 
-let html = renderBookmark(bmk_1_url, bmk_1_desc, bmk_1_seen, bmk_1_tag_1, bmk_1_tag_2);
-html += renderBookmark(bmk_2_url, bmk_2_desc, bmk_2_seen, bmk_2_tag_1, bmk_2_tag_2);
-html += renderBookmark(bmk_3_url, bmk_3_desc, bmk_3_seen, bmk_3_tag_1, bmk_3_tag_2);
+let html = renderBookmark(bmkData_1);
+html += renderBookmark(bmkData_2);
+html += renderBookmark(bmkData_3);
 
 
 listData.innerHTML = html;
