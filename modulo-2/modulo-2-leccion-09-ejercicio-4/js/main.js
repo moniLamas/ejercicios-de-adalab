@@ -21,6 +21,12 @@ const tasks = [{
 ];
 
 for (const data of tasks) {
-    let html = `<li>${data.name}</li>`;
-    main.html += html;
+
+    if (data.completed) {
+        const html = `<li class = "completed">${data.name}</li>`;
+        main.innerHTML += html;
+    } else {
+        const html = `<li>${data.name}</li>`;
+        main.innerHTML += html;
+    }
 }
