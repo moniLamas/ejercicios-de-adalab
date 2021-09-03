@@ -23,10 +23,10 @@ const tasks = [{
 for (const data of tasks) {
 
     if (data.completed) {
-        const html = `<li class = "completed">${data.name}</li>`;
+        const html = `<li class = "completed"><input checked type='checkbox'><label>${data.name}</label></li>`;
         main.innerHTML += html;
     } else {
-        const html = `<li>${data.name}</li>`;
+        const html = `<li><input type="checkbox"><label>${data.name}</label></li>`;
         main.innerHTML += html;
     }
 }
