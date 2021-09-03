@@ -2,6 +2,7 @@
 
 const main = document.querySelector('.js-main');
 
+/*
 const tasks = [{
         name: 'Recoger setas en el campo',
         completed: true
@@ -19,14 +20,21 @@ const tasks = [{
         completed: false
     }
 ];
+*/
 
-for (const data of tasks) {
 
-    if (data.completed) {
-        const html = `<li class = "completed">${data.name}</li>`;
-        main.innerHTML += html;
-    } else {
-        const html = `<li>${data.name}</li>`;
-        main.innerHTML += html;
-    }
-}
+fetch('http://api.igarrido.es/tasks.json')
+    .then(response => response.json())
+    .then((tasks) => {
+        for (const data of tasks) {
+
+            if (data.completed) {
+                const html = `<li class = "completed">${data.name}</li>`;
+                main.innerHTML += html;
+            } else {
+                const html = `<li>${data.name}</li>`;
+                main.innerHTML += html;
+            }
+        }
+
+    });
