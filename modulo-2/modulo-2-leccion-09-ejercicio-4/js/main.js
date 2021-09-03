@@ -23,10 +23,20 @@ const tasks = [{
 for (const data of tasks) {
 
     if (data.completed) {
-        const html = `<li class = "completed"><input checked type='checkbox'><label>${data.name}</label></li>`;
+        const html = `<li class = "completed"><input class= 'js_input' checked type='checkbox'><label>${data.name}</label></li>`;
         main.innerHTML += html;
     } else {
-        const html = `<li><input type="checkbox"><label>${data.name}</label></li>`;
+        const html = `<li><input class= 'js_input' type="checkbox"><label>${data.name}</label></li>`;
         main.innerHTML += html;
     }
+
+    const allInput = document.querySelectorAll('.js_input');
+
+    for (const eachInput of allInput) {
+        eachInput.addEventListener('click', handleClickTask);
+    }
+}
+
+function handleClickTask(event) {
+    const labelSister = event.target.parentNode
 }
