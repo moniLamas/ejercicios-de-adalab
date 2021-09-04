@@ -16,7 +16,7 @@ function getUserData() {
             img.src = data.avatar_url;
             img.alt = `Foto de ${userName}`;
             const repo = document.querySelector('.js_repos');
-            repos.innerHTML = data.public_repos;
+            repo.innerHTML = data.public_repos;
 
         })
 }
