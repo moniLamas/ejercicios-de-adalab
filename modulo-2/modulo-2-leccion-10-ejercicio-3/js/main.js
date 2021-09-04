@@ -1,12 +1,11 @@
 'use strict';
 
 const userSearch = document.querySelector('.js_user');
-
-
 const btnSearch = document.querySelector('.js_btnSearch');
 
 function getUserData() {
     let search = userSearch.value;
+    console.log('search');
     fetch(`https://api.github.com/users/${search}`)
         .then(response => response.json())
         .then(data => {
