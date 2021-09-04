@@ -1,21 +1,25 @@
 'use strict';
 
-const userSearch = document.querySelector('.js_user').value;
+const userSearch = document.querySelector('.js_user');
 
 
 const btnSearch = document.querySelector('.js_btnSearch');
 
 function getUserData() {
-    fetch(`https://api.github.com/users/${userSearch}`)
+    let search = userSearch.value;
+    debugger;
+    console.log(search);
+    fetch(`https://api.github.com/users/${search}`)
         .then(response => response.json())
         .then(data => {
-            const userName = document.querySelector('.userName');
-            userName = data.login;
+            const userName = document.querySelector('.js_userName');
+            userName.innerHTML = data.login;
             const img = document.querySelector("img");
             img.src = data.avatar_url;
             img.alt = `Foto de ${userName}`;
-            const repo = document.querySelector('.repos');
-            repos = data.public_repos
+            const repo = document.querySelector('.js_repos');
+            repos.innerHTML = data.public_repos;
+
         })
 }
 
