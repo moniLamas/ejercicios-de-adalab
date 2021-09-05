@@ -1,12 +1,11 @@
 'use strict';
 
-const orgSearch = document.querySelector('.js_organizarion');
+const orgSearch = document.querySelector('.js_organization');
 const btnSearch = document.querySelector('.js_btnSearch');
 
 function getOrgData(event) {
     event.preventDefault();
-    let search = orgSearch.value;
-    console.log(search);
+    const search = orgSearch.value;
 
     fetch(`https://api.github.com/orgs/${search}`)
         .then(response => response.json())
