@@ -1,22 +1,20 @@
 'use strict';
 
-const image = document.querySelector('.js_img');
+const image = document.querySelector('.js-image');
 
-console.log("Antes");
+console.log('Antes');
 
-function coverToJs(response) {
-    debugger;
+function convertToJs(response) {
     return response.json();
 }
 
 function renderToHTML(jsonData) {
-    debugger;
     console.log('Llegan los datos', jsonData);
     image.src = jsonData.url;
 }
 
 fetch('https://random.dog/woof.json')
-    .then(coverToJs)
+    .then(convertToJs)
     .then(renderToHTML);
 
-console.log("Después");
+console.log('Después');
