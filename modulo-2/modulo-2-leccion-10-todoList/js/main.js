@@ -8,21 +8,24 @@ fetch('http://api.igarrido.es/tasks.json')
     .then((response) => response.json())
     .then((jsonData) => {
         tasks = jsonData;
-        for (const data of tasks) {
-            if (data.completed) {
-                const html = `<li><input class="js-input" checked type="checkbox"><label class="completed">${data.name}</label></li>`;
-                main.innerHTML += html;
-            } else {
-                const html = `<li><input class="js-input" type="checkbox"><label>${data.name}</label></li>`;
-                main.innerHTML += html;
-            }
-        }
 
+        render();
     });
 
 
 function render() {
+    main.innerHTML = '';
+    for (let index = 0; index < tasks.length; index++) {
+        const data = tasks[index];
 
+        if (data.completed) {
+            const html = `<li><input id="${index}" class="js-input" checked type="checkbox"><label class="completed" id="${index}">${data.name}</label></li>`;
+            main.innerHTML += html;
+        } else {
+            const html = `<li><input id="${index}" class="js-input" type="checkbox"><label id="${index}">${data.name}</label></li>`;
+            main.innerHTML += html;
+        }
+    }
 
     const allInput = document.querySelectorAll('.js-input');
 
@@ -33,8 +36,13 @@ function render() {
 }
 
 function handleClickTask(ev) {
-    console.log(ev.target.parentNode.querySelector('label'));
+    const indexToChange = ev.target.id;
 
-    const labelSister = ev.target.parentNode.querySelector('label');
-    labelSister.classList.toggle('completed');
+    if (tasks[indexToChange].completed === true) {
+        tasks[indexToChange].completed = false;
+    } else {
+        tasks[indexToChange].completed = true;
+    }
+    console.log(tasks);
+    render();
 }
