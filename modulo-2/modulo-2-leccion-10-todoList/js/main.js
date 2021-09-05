@@ -2,41 +2,39 @@
 
 const main = document.querySelector('.js-main');
 
-const tasks = [{
-        name: 'Recoger setas en el campo',
-        completed: true
-    },
-    {
-        name: 'Comprar pilas',
-        completed: true
-    },
-    {
-        name: 'Poner una lavadora de blancos',
-        completed: true
-    },
-    {
-        name: 'Aprender cómo se realizan las peticiones al servidor en JavaScript',
-        completed: false
-    }
-];
+let tasks = [];
 
-for (const data of tasks) {
+fetch('http://api.igarrido.es/tasks.json')
+    .then((response) => response.json())
+    .then((jsonData) => {
+        tasks = jsonData;
+        for (const data of tasks) {
+            if (data.completed) {
+                const html = `<li><input class="js-input" checked type="checkbox"><label class="completed">${data.name}</label></li>`;
+                main.innerHTML += html;
+            } else {
+                const html = `<li><input class="js-input" type="checkbox"><label>${data.name}</label></li>`;
+                main.innerHTML += html;
+            }
+        }
 
-    if (data.completed) {
-        const html = `<li class = "completed"><input class= 'js_input' checked type='checkbox'><label>${data.name}</label></li>`;
-        main.innerHTML += html;
-    } else {
-        const html = `<li><input class= 'js_input' type="checkbox"><label>${data.name}</label></li>`;
-        main.innerHTML += html;
-    }
+    });
 
-    const allInput = document.querySelectorAll('.js_input');
+
+function render() {
+
+
+    const allInput = document.querySelectorAll('.js-input');
 
     for (const eachInput of allInput) {
         eachInput.addEventListener('click', handleClickTask);
     }
+
 }
 
-function handleClickTask(event) {
-    const labelSister = event.target.parentNode
+function handleClickTask(ev) {
+    console.log(ev.target.parentNode.querySelector('label'));
+
+    const labelSister = ev.target.parentNode.querySelector('label');
+    labelSister.classList.toggle('completed');
 }
