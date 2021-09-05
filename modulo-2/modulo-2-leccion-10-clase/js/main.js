@@ -4,17 +4,19 @@ const image = document.querySelector('.js_img');
 
 console.log("Antes");
 
-function coverToJs() {
+function coverToJs(response) {
     debugger;
-    return Response.json();
+    return response.json();
 }
 
-function renderToHTML() {
+function renderToHTML(jsonData) {
     debugger;
-    console.log(jsonData);
+    console.log('Llegan los datos', jsonData);
     image.src = jsonData.url;
 }
 
 fetch('https://random.dog/woof.json')
     .then(coverToJs)
     .then(renderToHTML);
+
+console.log("Después");
