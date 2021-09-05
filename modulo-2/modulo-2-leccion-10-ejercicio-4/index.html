@@ -13,12 +13,13 @@
         <h1>Buscador de repositorios</h1>
         <h3>de la organización que te interese</h3>
         <form action="">
-            <label for="organizations">Introduce el nombre de la organización:</label>
-            <input class="js_organizations" type="text" id="organizations" name="organizations">
+            <label for="organization">Introduce el nombre de la organización:</label>
+            <input class="js_organization" type="text" id="organization" name="organization">
             <button class="js_btnSearch">Buscar</button>
         </form>
         <h2>Resultados</h2>
-        <h3>Listado de los repositorios</h3>
+        <h3>Listado de los repositorios de <span class="js_nameOrg"></span></h3>
+        <p>Tienen un total de <span class="js_repos"></span> repositorios</p>
         <ul class="js_listRepo"></ul>
     </main>
 
