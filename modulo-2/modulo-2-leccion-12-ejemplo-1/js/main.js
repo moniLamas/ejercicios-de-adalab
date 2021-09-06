@@ -8,3 +8,14 @@ const mother = item1.parentElement;
 
 console.log(`La madre de nuestro elemento es un <${mother.nodeName.toLowerCase()}> y tiene la clase .${mother.className}`);
 // Devuelve "La madre de nuestro elemento es un <ul> y tiene la clase .items"
+
+// Creamos un elemento nuevo, un <li>
+const newItem = document.createElement('li');
+console.log(newItem); // Devuelve "<li></li>"
+
+// Ahora creamos algo de contenido
+const newContent = document.createTextNode('Item nuevo');
+
+// Y se lo añadimos a nuestro <li>
+newItem.appendChild(newContent);
+console.log(newItem); // Devuelve "<li>Item nuevo</li>"
