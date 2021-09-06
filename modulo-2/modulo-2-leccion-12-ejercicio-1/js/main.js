@@ -1,21 +1,17 @@
 'use strict';
 
-const item1 = document.querySelector('.item--1');
-console.log(item1); // Devuelve una representación del elemento como HTML
-console.dir(item1); // Devuelve una representación del elemento como objeto
+const numbers = [1, 2, 3];
 
-const mother = item1.parentElement;
+for (let eachNumber of numbers) {
+    const newItem = document.createElement('li');
+    const newContent = document.createTextNode(eachNumber);
+    console.log(eachNumber);
 
-console.log(`La madre de nuestro elemento es un <${mother.nodeName.toLowerCase()}> y tiene la clase .${mother.className}`);
-// Devuelve "La madre de nuestro elemento es un <ul> y tiene la clase .items"
+    newItem.appendChild(newContent);
+    console.log(newContent);
 
-// Creamos un elemento nuevo, un <li>
-const newItem = document.createElement('li');
-console.log(newItem); // Devuelve "<li></li>"
-
-// Ahora creamos algo de contenido
-const newContent = document.createTextNode('Item nuevo');
-
-// Y se lo añadimos a nuestro <li>
-newItem.appendChild(newContent);
-console.log(newItem); // Devuelve "<li>Item nuevo</li>"
+    const items = document.querySelector('.items');
+    console.log(items);
+    items.appendChild(newItem);
+    console.log(newItem);
+}
