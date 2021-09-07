@@ -18,18 +18,26 @@ const arrayName3 = {
     phone: '135792468'
 }
 
-const yourName = document.querySelector('#name');
-const yourLastName = document.querySelector('.lastName');
-const yourPhone = document.querySelector('.phone');
+const data = [arrayName1, arrayName2, arrayName3]
 
-if (yourName === arrayName1.name) {
-    yourLastName.value = arrayName1.lastName;
-    yourPhone.value = arrayName1.phone;
-    console.log(yourName);
-} else if (yourName === arrayName2.name) {
-    yourLastName.value = arrayName2.lastName;
-    yourPhone.value = arrayName2.phone
-} else if (yourName === arrayName3.name) {
-    yourLastName.value = arrayName3.lastName;
-    yourPhone.value = arrayName3.phone
+
+const yourName = document.querySelector('#name');
+const names = document.querySelector('.js_name');
+const yourLastName = document.querySelector('.lastName');
+const yourPhone = document.querySelector('.phone')
+
+function autocomplete() {
+    if (yourName.value === 'Julia') {
+        yourLastName.setAttribute('value', data[0].lastName);
+        yourPhone.setAttribute('value', data[0].phone);
+    } else if (yourName.value === 'Esther') {
+        yourLastName.setAttribute('value', data[1].lastName);
+        yourPhone.setAttribute('value', data[1].phone);
+    } else if (yourName.value === data[2].name) {
+        yourLastName.setAttribute('value', data[2].lastName);
+        yourPhone.setAttribute('value', data[2].phone);
+    }
 }
+console.log(yourName);
+
+yourName.addEventListener('change', autocomplete);

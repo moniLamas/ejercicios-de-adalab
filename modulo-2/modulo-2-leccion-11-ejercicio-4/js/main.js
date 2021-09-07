@@ -8,7 +8,7 @@ function getYourName() {
     console.log(name);
     blockName.innerHTML = `Guardamos ${name} como tu nombre`;
 
-    localStorage.setItem('name', JSON.stringify(yourName));
+    savedName.setItem('name', JSON.stringify(yourName));
 }
 
 const savedName = JSON.parse(localStorage.getItem('name'));

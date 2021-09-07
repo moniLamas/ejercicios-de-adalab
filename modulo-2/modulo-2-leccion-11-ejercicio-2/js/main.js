@@ -14,11 +14,11 @@ function getPersonData(event) {
         .then(response => response.json())
         .then(data => {
             personName = search;
-            const results = data.results;
+            // const results = data.results;
             // console.log(search);
             const namePerson = document.querySelector('.js_name');
-            console.log(results);
-            namePerson.innerHTML = results.name;
+            // console.log(results);
+            namePerson.innerHTML = data.results[item].name;
 
             const hairPerson = document.querySelector('js_hairColor');
             hairPerson.innerHTML = results.hair_color;
