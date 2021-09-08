@@ -21,3 +21,10 @@ const runners = [{
         time: 35
     }
 ];
+
+const runnersTime = runners.map(runners => runners.time);
+console.log(runnersTime);
+
+
+
+console.log('The winner is ' + winner);
