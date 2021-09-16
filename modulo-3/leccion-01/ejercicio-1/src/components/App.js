@@ -4,8 +4,12 @@ function App() {
   return ( <
     div >
     <
-    h1 > Hola mundo! < /h1> < /
-    div >
+    header >
+    <
+    h1 className = "title" > Título de mi página < /h1> <
+    p > Hello world! < /p> < /
+    header > <
+    /div>
   );
 }
 
