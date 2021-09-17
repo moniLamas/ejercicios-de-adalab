@@ -1,7 +1,8 @@
-import '../styles/App.scss';
+import "../styles/App.scss";
 
 function App() {
-  <
+  {
+    /*return<
   img src = "https://beta.adalab.es/resources/images/adalab-logo-128x128.png"
   title = "Página de Adalab"
   alt = "Logo de Adalab" / >
@@ -10,11 +11,10 @@ function App() {
     <
     div className = "logo" >
     <
-    a href = "https://adalab.es"
+a  = "https://adalab.es"
   target = "_blanck"
   title = "logo-de-adalab" >
-    <
-    img
+    <img
   src = {
     logo
   }
@@ -37,7 +37,9 @@ function App() {
     /header><main className="main"> <
   h1 className = "h1" > Creando diversidad digital < /h1>  < /
   main >
-);
+);*/
+  }
+  return <>asdfa</>;
 }
 
 export default App;
