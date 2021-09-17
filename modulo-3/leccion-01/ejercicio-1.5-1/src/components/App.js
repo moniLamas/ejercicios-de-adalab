@@ -2,8 +2,11 @@ import '../styles/App.scss';
 
 function App() {
   <
-  >
-  < header className = "header" >
+  img src = "https://beta.adalab.es/resources/images/adalab-logo-128x128.png"
+  title = "Página de Adalab"
+  alt = "Logo de Adalab" / >
+    <
+    header className = "header" >
     <
     div className = "logo" >
     <
@@ -33,7 +36,7 @@ function App() {
   nav > <
     /header><main className="main"> <
   h1 className = "h1" > Creando diversidad digital < /h1>  < /
-    main > < / >
+  main >
 );
 }
 
