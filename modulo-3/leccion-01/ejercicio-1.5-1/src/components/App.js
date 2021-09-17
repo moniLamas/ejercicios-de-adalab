@@ -1,8 +1,9 @@
-import '../styles/App.css';
+import '../styles/App.scss';
 
 function App() {
   <
-  > < header className = "header" >
+  >
+  < header className = "header" >
     <
     div className = "logo" >
     <
@@ -16,7 +17,7 @@ function App() {
   }
   alt = "logo-adalab"
   title = "logo-de-adalab" / > < /a> < /
-    div > <
+  div > <
     nav className = "menu" >
     <
     ul className = "ul-menu" >
@@ -29,10 +30,10 @@ function App() {
   className = "link" > Contacto < /a></li >
     <
     /ul> < /
-    nav > <
+  nav > <
     /header><main className="main"> <
-  h1 className = "h1" > Creando diversidad digital < /h1>  <
-    /main></ >
+  h1 className = "h1" > Creando diversidad digital < /h1>  < /
+    main > < / >
 );
 }
 
