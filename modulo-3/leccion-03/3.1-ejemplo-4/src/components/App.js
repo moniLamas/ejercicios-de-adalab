@@ -2,33 +2,52 @@
 import { useState } from "react";
 
 const App = () => {
-  // Creamos la constante de estado giftWrap con el valor inicial a booleano
-  // Al iniciar suponemos que la clienta no quiere envolver el producto para regalo, por eso ponemos false
-  const [giftWrap, setGiftWrap] = useState(false);
+  // Creamos la constante de estado size con el valor inicial a string vacío
+  const [size, setSize] = useState("");
 
   // Creamos la función manejadora
-  const handleGiftWrap = (ev) => {
-    // En la que guardamos no el valor del input sino su propiedad checked, en giftWrap con setGiftWrap
-    setGiftWrap(ev.target.checked);
+  const handleSize = (ev) => {
+    // En la que guardamos el valor del input en size con setSize
+    setSize(ev.target.value);
   };
 
   return (
     <div>
       <form>
-        <label htmlFor="giftWrap">
-          ¿Quieres envolver para regalo tu compra?
-        </label>
+        <label htmlFor="size">Selecciona tu talla de camiseta:</label>
 
-        {/* Creamos un evento de tipo change en este input que va a ser manejada por handleGiftWrap */}
+        <label htmlFor="sizeS">Talla S</label>
+        {/* Creamos un evento de tipo change en este radio que va a ser manejada por handleSize */}
         <input
-          type="checkbox"
-          name="gitWrap"
-          id="gitWrap"
-          onChange={handleGiftWrap}
+          type="radio"
+          id="sizeS"
+          name="size"
+          value="S"
+          onChange={handleSize}
         />
 
-        {/* Usamos la constante giftWrap para pintarla en el HTML */}
-        <p>{giftWrap === true ? "Sí" : "No"} te lo envolveremos para regalo</p>
+        <label htmlFor="sizeM">Talla M</label>
+        {/* Creamos un evento de tipo change en este radio que va a ser manejada por handleSize */}
+        <input
+          type="radio"
+          id="sizeM"
+          name="size"
+          value="M"
+          onChange={handleSize}
+        />
+
+        <label htmlFor="sizeL">Talla L</label>
+        {/* Creamos un evento de tipo change en este radio que va a ser manejada por handleSize */}
+        <input
+          type="radio"
+          id="sizeL"
+          name="size"
+          value="L"
+          onChange={handleSize}
+        />
+
+        {/* Usamos la constante size para pintarla en el HTML */}
+        <p>Tu talla de camiseta es: {size}</p>
       </form>
     </div>
   );
