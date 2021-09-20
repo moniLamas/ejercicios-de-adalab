@@ -1,26 +1,107 @@
-import { useState } from "react";
 import "../styles/App.scss";
 
 function App() {
-  const [number, setNumber] = useState(0);
-  function increase() {
-    return setNumber(number + 1);
-  }
-  function decrease() {
-    return setNumber(number - 1);
-  }
-  function reset() {
-    setNumber(0);
-  }
-  return (
-    <div>
-      <h1>El Contador</h1>
-      <p>Contador: {number}</p>
-      <button onClick={increase}>Incrementa 1</button>
-      <button onClick={decrease}>Decrementa 1</button>
-      <button onClick={reset}>Resetea</button>
+  <body>
+    <div class="page">
+      <header class="header">
+        <nav class="menu">
+          <ul class="menu__items">
+            <li class="menu__item menu__item--twitter">
+              <a class="menu__link" href="#" title="Ir">
+                <span class="text">Ir al inicio</span>
+              </a>
+            </li>
+
+            <li class="menu__item menu__item--home">
+              <a class="menu__link" href="#" title="Ir">
+                <span class="text">Ir al inicio</span>
+              </a>
+            </li>
+
+            <li class="menu__item menu__item--search">
+              <a class="menu__link" href="#" title="Buscar">
+                <span class="text">Buscar</span>
+              </a>
+            </li>
+
+            <li class="menu__item menu__item--profile">
+              <a class="menu__link" href="#" title="Perfil">
+                <span class="text">Perfil</span>
+              </a>
+            </li>
+
+            <li class="menu__item menu__item--tweet">
+              <a class="menu__link" href="#" title="Twittear">
+                <span class="text">Twittear</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="main">
+        <section class="main__header">
+          <header>
+            <h1 class="header__title">
+              <span class="header__account">Adalab</span>
+              <span class="header__tweets">6.762 Tweets</span>
+            </h1>
+
+            <img src="./../images/adalab-banner.jpg" alt="Banner de Adalab" />
+
+            <div class="header__content">
+              <div class="header__profile-image">
+                <img
+                  src="./../images/adalab-logo.png"
+                  alt="Imagen de perfil de Adalab"
+                />
+              </div>
+
+              <div class="header__actions">
+                <button class="header__follow-btn">Siguiendo</button>
+              </div>
+
+              <div class="header__account-info">
+                <span class="header__acount-title">Adalab</span>
+                <span class="header__acount-username">@Adalab_Digital</span>
+                <span class="header__acount-follow">Te sigue</span>
+              </div>
+
+              <h2 class="header__account-description">
+                👩‍💻 Tecnóloga mujer Escuela de programación web para mujeres.{" "}
+                <br />
+                📅 Calendario espiralado Próximo curso: noviembre 2021. <br />
+                📌 Clases online en directo.
+                <br />
+                🚀 Aprende a programar en solo 12 semanas.
+              </h2>
+
+              <div class="header__account-data">
+                <span class="header__account-region">
+                  Madrid, Comunidad de Madrid
+                </span>
+                <a class="header__account-link" href="https://adalab.es">
+                  adalab.es
+                </a>
+                <span class="header__account-date">
+                  Se unió en agosto de 2016
+                </span>
+              </div>
+
+              <div class="header__followers-info">
+                <span class="header__following">
+                  <span class="header__followers-number">1.908</span> Siguiendo
+                </span>
+                <span class="header__followers">
+                  <span class="header__followers-number">5.601</span> Seguidores
+                </span>
+              </div>
+            </div>
+          </header>
+        </section>
+      </main>
     </div>
-  );
+  </body>;
 }
 
 export default App;
