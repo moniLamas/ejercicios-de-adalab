@@ -6,7 +6,7 @@ const App = () => {
   const [series, setSeries] = useState([
     { id: "123", isFavorite: false, name: "Juego de tronos" },
     { id: "456", isFavorite: false, name: "Las chicas Gilmore" },
-    { id: "678", isFavorite: false, name: "Gambita de Dama" },
+    { id: "678", isFavorite: false, name: "Gambito de Dama" },
   ]);
 
   // Función manejadora que se ejecuta cuando la usuaria pulsa en una serie
