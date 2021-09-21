@@ -1,12 +1,35 @@
 import { useState } from "react";
 
 const App = () => {
-  // valor inicial a string vacío
-  const [ingredient, setIngredient] = useState("");
+  const [macaroons, setMacaroons] = useState("");
+  const [potatoes, setPotatoes] = useState("");
+  const [nuts, setNuts] = useState("");
+  const [eggs, setEggs] = useState("");
+  const [onion, setOnion] = useState("");
+  const [beer, setBeer] = useState("");
 
-  // la función manejadora
   const handleIngredient = (ev) => {
-    setIngredient(ev.target.value);
+    if (ev.target.id === "macaroons") {
+      setMacaroons(ev.target.checked);
+    } else if (ev.target.id === "potatoes") {
+      setPotatoes(ev.target.checked);
+    } else if (ev.target.id === "nuts") {
+      setNuts(ev.target.id.checked);
+    } else if (ev.target.id === "eggs") {
+      setEggs(ev.target.checked);
+    } else if (ev.target.id === "onion") {
+      setOnion(ev.target.checked);
+    } else if (ev.target.id === "beer") {
+      setBeer(ev.target.checked);
+    }
+  };
+
+  const renderMesaje = () => {
+    if (onion && potatoes && eggs && !beer && !nuts && !macaroons) {
+      return "Eres una persona concebollista";
+    } else {
+      return "Eres un robot sin paladar";
+    }
   };
 
   return (
@@ -18,7 +41,7 @@ const App = () => {
 
         <label htmlFor="macaroons">Macarrones</label>
         <input
-          type="radio"
+          type="checkbox"
           id="macaroons"
           name="ingredient"
           value="macaroons"
@@ -27,7 +50,7 @@ const App = () => {
 
         <label htmlFor="potatoes">Patatas</label>
         <input
-          type="radio"
+          type="checkbox"
           id="potatoes"
           name="ingredient"
           value="potatoes"
@@ -36,7 +59,7 @@ const App = () => {
 
         <label htmlFor="nuts">Nueces</label>
         <input
-          type="radio"
+          type="checkbox"
           id="nuts"
           name="ingredient"
           value="nuts"
@@ -45,7 +68,7 @@ const App = () => {
 
         <label htmlFor="eggs">Huevos</label>
         <input
-          type="radio"
+          type="checkbox"
           id="eggs"
           name="ingredient"
           value="eggs"
@@ -54,7 +77,7 @@ const App = () => {
 
         <label htmlFor="onion">Cebolla</label>
         <input
-          type="radio"
+          type="checkbox"
           id="onion"
           name="ingredient"
           value="onion"
@@ -63,18 +86,14 @@ const App = () => {
 
         <label htmlFor="beer">Cerveza</label>
         <input
-          type="radio"
+          type="checkbox"
           id="beer"
           name="ingredient"
           value="beer"
           onChange={handleIngredient}
         />
 
-        <p>
-          {/* {ingredient === cebolla
-            ? "Eres una persona concebollista"
-            : "Eres un robot sin paladar"} */}
-        </p>
+        <p>{renderMesaje()}</p>
       </form>
     </div>
   );
