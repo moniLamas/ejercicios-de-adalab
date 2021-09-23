@@ -4,8 +4,7 @@ import data from "../data/contacts.json";
 function App() {
   const oneContact = data[0];
 
-  const html = data.map((oneContact, index) => {
-		
+  const htmlContactList = data.map((oneContact, index) => {
     <li className="contact__item">
       <p className="contact__name">
         <label className="contact__label">Nombre:</label>
@@ -15,7 +14,7 @@ function App() {
         <label className="contact__label">Teléfono:</label>
         <a
           href={`tel: ${oneContact.phone}`}
-          title="Pulsa aquí para llamar a Lola"
+          title={`Pulsa aquí para llamar a ${oneContact.name}`}
         >
           {oneContact.phone}
         </a>
@@ -29,12 +28,8 @@ function App() {
           {oneContact.email}
         </a>
       </p>
-    </li>
-  );
-
-});
-
-	
+    </li>;
+  });
 
   return (
     <div className="page">
@@ -54,7 +49,7 @@ function App() {
 
       <main>
         {/* contact list */}
-        <ul className="contact__list">{htmlOneContact};</ul>
+        <ul className="contact__list">{htmlContactList};</ul>
 
         {/* new contact */}
         <form className="new-contact__form">
