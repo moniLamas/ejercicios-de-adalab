@@ -9,7 +9,7 @@ const callToApi = (searchName) => {
       // Recorremos el array results obteniendo solo el nombre
       // Esto lo hacemos para limpiar la respuesta del API antes de devolverla al componente App
       // Esto es opcional pero recomendado
-      const result = response.results.map((serie) => {
+      const result = response.map((serie) => {
         return {
           name: serie.show.name,
         };
