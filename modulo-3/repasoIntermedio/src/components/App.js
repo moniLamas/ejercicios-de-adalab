@@ -1,6 +1,36 @@
 import "../styles/App.scss";
+import data from "../data/contacts.json";
 
 function App() {
+  const oneContact = data[0];
+
+  const htmlOneContact = (
+    <li className="contact__item">
+      <p className="contact__name">
+        <label className="contact__label">Nombre:</label>
+        {oneContact.name} {oneContact.lastName}
+      </p>
+      <p className="contact__phone">
+        <label className="contact__label">Teléfono:</label>
+        <a
+          href={`tel: ${oneContact.phone}`}
+          title="Pulsa aquí para llamar a Lola"
+        >
+          {oneContact.phone}
+        </a>
+      </p>
+      <p className="contact__mail">
+        <label className="contact__label">Email:</label>
+        <a
+          href={`mailto: ${oneContact.email}`}
+          title="Pulsa aquí para escribir a Lola"
+        >
+          {oneContact.email}
+        </a>
+      </p>
+    </li>
+  );
+
   return (
     <div className="page">
       {/* header */}
@@ -19,88 +49,7 @@ function App() {
 
       <main>
         {/* contact list */}
-        <ul className="contact__list">
-          <li className="contact__item">
-            <p className="contact__name">
-              <label className="contact__label">Nombre:</label>Lola Martinez
-            </p>
-            <p className="contact__phone">
-              <label className="contact__label">Teléfono:</label>
-              <a href="tel:603256289" title="Pulsa aquí para llamar a Lola">
-                603256289
-              </a>
-            </p>
-            <p className="contact__mail">
-              <label className="contact__label">Email:</label>
-              <a
-                href="mailto:lmartinez@adalab.es"
-                title="Pulsa aquí para escribir a Lola"
-              >
-                lmartinez@adalab.es
-              </a>
-            </p>
-          </li>
-          <li className="contact__item">
-            <p className="contact__name">
-              <label className="contact__label">Nombre:</label>Martha Houston
-            </p>
-            <p className="contact__phone">
-              <label className="contact__label">Teléfono:</label>
-              <a href="tel:612435678" title="Pulsa aquí para llamar a Martha">
-                612435678
-              </a>
-            </p>
-            <p className="contact__mail">
-              <label className="contact__label">Email:</label>
-              <a
-                href="mailto:mhouston@adalab.es"
-                title="Pulsa aquí para escribir a Martha"
-              >
-                mhouston@adalab.es
-              </a>
-            </p>
-          </li>
-          <li className="contact__item">
-            <p className="contact__name">
-              <label className="contact__label">Nombre:</label>Lillie Moore
-            </p>
-            <p className="contact__phone">
-              <label className="contact__label">Teléfono:</label>
-              <a href="tel:632456789" title="Pulsa aquí para llamar a Lillie">
-                632456789
-              </a>
-            </p>
-            <p className="contact__mail">
-              <label className="contact__label">Email:</label>
-              <a
-                href="mailto:lillie@adalab.es"
-                title="Pulsa aquí para escribir a Lillie"
-              >
-                lillie@adalab.es
-              </a>
-            </p>
-          </li>
-          <li className="contact__item">
-            <p className="contact__name">
-              <label className="contact__label">Nombre:</label>Jane Norton
-            </p>
-            <p className="contact__phone">
-              <label className="contact__label">Teléfono:</label>
-              <a href="tel:603256679" title="Pulsa aquí para llamar a Jane">
-                603256679
-              </a>
-            </p>
-            <p className="contact__mail">
-              <label className="contact__label">Email:</label>
-              <a
-                href="mailto:janenorton@adalab.es"
-                title="Pulsa aquí para escribir a Jane"
-              >
-                janenorton@adalab.es
-              </a>
-            </p>
-          </li>
-        </ul>
+        <ul className="contact__list">{htmlOneContact};</ul>
 
         {/* new contact */}
         <form className="new-contact__form">
