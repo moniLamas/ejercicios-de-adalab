@@ -3,6 +3,7 @@ import "../styles/App.scss";
 import initialData from "../data/contacts.json";
 
 function App() {
+  //variable estado para tener controlado el array [data] inicializado con los datos que nos traemos del json
   const [data, setData] = useState(initialData);
 
   const [search, setSearch] = useState("");
@@ -17,6 +18,7 @@ function App() {
     //si hago un console.log mostrará el valor introducido por la usuaria
   };
 
+  //funciones para recoger los datos del nuevo contacto
   const handleChangeName = (ev) => {
     setNewName(ev.currentTarget.value);
   };
@@ -32,8 +34,10 @@ function App() {
   };
 
   const handleClick = (ev) => {
+    //evita enviar los datos al hacer click
     ev.preventDefault();
 
+    //creamos un objeto nuevo que contenga los datos nuevos
     const newContact = {
       name: newName,
       lastname: newLastname,
@@ -41,14 +45,16 @@ function App() {
       email: newEmail,
     };
 
-    //el spread añadiende un nuevo objeto {newContact} al array [data]
+    //el spread añade el nuevo objeto {newContact} al array [data]
     setData([...data, newContact]);
 
+    //borra los valores introducidos por la usuaria en los input
     setNewName("");
     setNewLastname("");
     setNewPhone("");
     setNewEmail("");
   };
+
   //data.filter().map()
   const htmlContactList = data
     .filter(
