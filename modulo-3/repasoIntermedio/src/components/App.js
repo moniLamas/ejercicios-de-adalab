@@ -1,11 +1,27 @@
 import "../styles/App.scss";
 import data from "../data/contacts.json";
+import { useState } from "react";
 
 function App() {
   const oneContact = data[0];
 
-  const htmlContactList = data.map((oneContact, index) => {
-    <li className="contact__item">
+  const [search, setSearch] = useState("");
+  const [newName, serNewName] = useState("");
+
+  const hadleChangeSearch = (ev) => {
+    setSearch(ev.currentTarget.value);
+  };
+
+  const hadleChangeName = (ev) => {
+    setNewName(ev.currentTarget.value);
+  };
+
+  const dataFiltered = data.filter((contact) =>
+    contact.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+  );
+
+  const htmlContactList = dataFiltered.map((oneContact, index) => {
+    <li className="contact__item" key={index}>
       <p className="contact__name">
         <label className="contact__label">Nombre:</label>
         {oneContact.name} {oneContact.lastName}
@@ -43,6 +59,8 @@ function App() {
             type="search"
             name="search"
             placeholder="Filtrar contactos por nombre"
+            onChange={hadleChangeSearch}
+            //falta el value con el evento
           />
         </form>
       </header>
