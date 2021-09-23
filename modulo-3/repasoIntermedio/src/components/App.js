@@ -12,7 +12,9 @@ function App() {
   const [newEmail, setNewEmail] = useState("");
 
   const hadleChangeSearch = (ev) => {
+    //funcion para cambiar el valor de la variable estado search con el valor que introduce la usuaria, lo utilizamos para filtrar el array de datos[data]
     setSearch(ev.currentTarget.value);
+    //si hago un console.log mostrará el valor introducido por la usuaria
   };
 
   const handleChangeName = (ev) => {
@@ -39,7 +41,7 @@ function App() {
       email: newEmail,
     };
 
-    //el spread crea un nuevo array añadiendo un nuevo objeto newContact
+    //el spread añadiende un nuevo objeto {newContact} al array [data]
     setData([...data, newContact]);
 
     setNewName("");
@@ -47,10 +49,12 @@ function App() {
     setNewPhone("");
     setNewEmail("");
   };
-
+  //data.filter().map()
   const htmlContactList = data
     .filter(
+      //filtramos nombre y apellido con el operador ||
       (contact) =>
+        //includes nos busca el valor search dentro del valor contact.name-lastname
         contact.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
         contact.lastname
           .toLocaleLowerCase()
@@ -96,6 +100,7 @@ function App() {
             name="search"
             placeholder="Filtrar contactos por nombre"
             onChange={hadleChangeSearch}
+            //variable estado para tener controlado el valor que introduce el usuario
             value={search}
           />
         </form>
