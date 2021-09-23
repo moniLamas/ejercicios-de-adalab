@@ -4,7 +4,8 @@ import data from "../data/contacts.json";
 function App() {
   const oneContact = data[0];
 
-  const htmlOneContact = (
+  const html = data.map((oneContact, index) => {
+		
     <li className="contact__item">
       <p className="contact__name">
         <label className="contact__label">Nombre:</label>
@@ -30,6 +31,10 @@ function App() {
       </p>
     </li>
   );
+
+});
+
+	
 
   return (
     <div className="page">
