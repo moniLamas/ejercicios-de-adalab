@@ -39,20 +39,15 @@ function App() {
       email: newEmail,
     };
 
-    //data.push(newContact);
+    //el spread crea un nuevo array añadiendo un nuevo objeto newContact
     setData([...data, newContact]);
 
     setNewName("");
     setNewLastname("");
     setNewPhone("");
     setNewEmail("");
-
-    console.log(data);
   };
 
-  // const dataFiltered = data.filter((contact) =>
-  //   contact.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-  // );
   const htmlContactList = data
     .filter(
       (contact) =>
@@ -80,7 +75,7 @@ function App() {
           <label className="contact__label">Email:</label>
           <a
             href={`mailto: ${oneContact.email}`}
-            title="Pulsa aquí para escribir a Lola"
+            title={`Pulsa aquí para escribir a ${oneContact.email} `}
           >
             {oneContact.email}
           </a>
