@@ -1,51 +1,92 @@
-import "../styles/App.scss";
-import data from "../data/contacts.json";
 import { useState } from "react";
+import "../styles/App.scss";
+import initialData from "../data/contacts.json";
 
 function App() {
-  const oneContact = data[0];
+  const [data, setData] = useState(initialData);
 
   const [search, setSearch] = useState("");
-  const [newName, serNewName] = useState("");
+  const [newName, setNewName] = useState("");
+  const [newLastname, setNewLastname] = useState("");
+  const [newPhone, setNewPhone] = useState("");
+  const [newEmail, setNewEmail] = useState("");
 
   const hadleChangeSearch = (ev) => {
     setSearch(ev.currentTarget.value);
   };
 
-  const hadleChangeName = (ev) => {
+  const handleChangeName = (ev) => {
     setNewName(ev.currentTarget.value);
   };
 
-  const dataFiltered = data.filter((contact) =>
-    contact.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-  );
+  const handleChangeLastname = (ev) => {
+    setNewLastname(ev.currentTarget.value);
+  };
+  const handleChangePhone = (ev) => {
+    setNewPhone(ev.currentTarget.value);
+  };
+  const handleChangeEmail = (ev) => {
+    setNewEmail(ev.currentTarget.value);
+  };
 
-  const htmlContactList = dataFiltered.map((oneContact, index) => {
-    <li className="contact__item" key={index}>
-      <p className="contact__name">
-        <label className="contact__label">Nombre:</label>
-        {oneContact.name} {oneContact.lastName}
-      </p>
-      <p className="contact__phone">
-        <label className="contact__label">Teléfono:</label>
-        <a
-          href={`tel: ${oneContact.phone}`}
-          title={`Pulsa aquí para llamar a ${oneContact.name}`}
-        >
-          {oneContact.phone}
-        </a>
-      </p>
-      <p className="contact__mail">
-        <label className="contact__label">Email:</label>
-        <a
-          href={`mailto: ${oneContact.email}`}
-          title="Pulsa aquí para escribir a Lola"
-        >
-          {oneContact.email}
-        </a>
-      </p>
-    </li>;
-  });
+  const handleClick = (ev) => {
+    ev.preventDefault();
+
+    const newContact = {
+      name: newName,
+      lastname: newLastname,
+      phone: newPhone,
+      email: newEmail,
+    };
+
+    //data.push(newContact);
+    setData([...data, newContact]);
+
+    setNewName("");
+    setNewLastname("");
+    setNewPhone("");
+    setNewEmail("");
+
+    console.log(data);
+  };
+
+  // const dataFiltered = data.filter((contact) =>
+  //   contact.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+  // );
+  const htmlContactList = data
+    .filter(
+      (contact) =>
+        contact.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
+        contact.lastname
+          .toLocaleLowerCase()
+          .includes(search.toLocaleLowerCase())
+    )
+    .map((oneContact, index) => (
+      <li className="contact__item" key={index}>
+        <p className="contact__name">
+          <label className="contact__label">Nombre:</label>
+          {oneContact.name} {oneContact.lastName}
+        </p>
+        <p className="contact__phone">
+          <label className="contact__label">Teléfono:</label>
+          <a
+            href={`tel: ${oneContact.phone}`}
+            title={`Pulsa aquí para llamar a ${oneContact.name}`}
+          >
+            {oneContact.phone}
+          </a>
+        </p>
+        <p className="contact__mail">
+          <label className="contact__label">Email:</label>
+          <a
+            href={`mailto: ${oneContact.email}`}
+            title="Pulsa aquí para escribir a Lola"
+          >
+            {oneContact.email}
+          </a>
+        </p>
+      </li>
+    ));
 
   return (
     <div className="page">
@@ -60,7 +101,7 @@ function App() {
             name="search"
             placeholder="Filtrar contactos por nombre"
             onChange={hadleChangeSearch}
-            //falta el value con el evento
+            value={search}
           />
         </form>
       </header>
@@ -78,6 +119,8 @@ function App() {
             name="name"
             id="name"
             placeholder="Nombre"
+            onChange={handleChangeName}
+            value={newName}
           />
           <input
             className="new-contact__input"
@@ -85,6 +128,8 @@ function App() {
             name="lastname"
             id="lastname"
             placeholder="Apellidos"
+            onChange={handleChangeLastname}
+            value={newLastname}
           />
           <input
             className="new-contact__input"
@@ -92,6 +137,8 @@ function App() {
             name="phone"
             id="phone"
             placeholder="Teléfono"
+            onChange={handleChangePhone}
+            value={newPhone}
           />
           <input
             className="new-contact__input"
@@ -99,8 +146,15 @@ function App() {
             name="email"
             id="email"
             placeholder="Email"
+            onChange={handleChangeEmail}
+            value={newEmail}
           />
-          <input className="new-contact__btn" type="submit" value="Añadir" />
+          <input
+            className="new-contact__btn"
+            type="submit"
+            value="Añadir"
+            onClick={handleClick}
+          />
         </form>
       </main>
     </div>
