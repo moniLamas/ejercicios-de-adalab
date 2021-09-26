@@ -1,5 +1,5 @@
-//import { useState } from "react";
-import "../styles/App.scss";
+import "../styles/components/Header.scss";
+import "../styles/core/Variables.scss";
 import Logo from "./Logo";
 import Menu from "./Menu";
 

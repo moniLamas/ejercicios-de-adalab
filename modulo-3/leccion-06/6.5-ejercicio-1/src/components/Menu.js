@@ -1,4 +1,4 @@
-import "../styles/App.scss";
+import "../styles/components/Nav-bar.scss";
 import Link from "./Link";
 
 function Menu() {

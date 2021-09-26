@@ -1,6 +1,6 @@
-//import { useState } from "react";
-import "../styles/App.scss";
-//import initialData from "../data/contacts.json";
+import "../styles/components/Container.scss";
+import "../styles/components/Lema.scss";
+import "../styles/core/Variables.scss";
 
 function Main() {
   return (

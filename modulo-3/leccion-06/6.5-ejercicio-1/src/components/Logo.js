@@ -1,7 +1,5 @@
-//import { useState } from "react";
-import "../styles/App.scss";
+import "../styles/components/Logo.scss";
 import adalabLogo from "../images/adalab-logo-155x61.png";
-//import initialData from "../data/contacts.json";
 
 function Logo() {
   return (

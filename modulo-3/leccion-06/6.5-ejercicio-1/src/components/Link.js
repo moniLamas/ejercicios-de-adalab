@@ -1,4 +1,4 @@
-import "../styles/App.scss";
+import "../styles/components/Link.scss";
 
 function Link(props) {
   const openInNewTab = props.target === undefined ? "" : props.target;
