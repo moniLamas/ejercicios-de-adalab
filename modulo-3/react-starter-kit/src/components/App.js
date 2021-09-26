@@ -1,11 +1,7 @@
 import "../styles/App.scss";
+//import {useState} from "react";
+//import initialData from "../data/contacts.json";
 
-function App() {
-  return (
-    <div>
-      <h1> Hola Moni!</h1>
-    </div>
-  );
-}
+function App() {}
 
 export default App;
