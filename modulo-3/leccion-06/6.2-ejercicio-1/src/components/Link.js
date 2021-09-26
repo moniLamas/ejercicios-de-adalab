@@ -1,26 +1,20 @@
-//import { useState } from "react";
 import "../styles/App.scss";
-//import initialData from "../data/contacts.json";
 
-function Menu() {
+function Link(props) {
+  const openInNewTab = props.target === undefined ? "" : props.target;
   return (
-    <div>
-      <nav>
-        <ul className="nav-bar">
-          <li>
-            <a className="link" href="https://adalab.es/blog/" title="Blog">
-              Blog
-            </a>
-          </li>
-          <li>
-            <a className="link" href="./contact" title="Contacto">
-              Contacto
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <li>
+      <a
+        title={props.title}
+        className={props.class}
+        href={props.href}
+        target={openInNewTab}
+        rel={props.rel}
+      >
+        {props.text}
+      </a>
+    </li>
   );
 }
 
-export default Menu;
+export default Link;
