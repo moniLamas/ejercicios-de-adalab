@@ -4,30 +4,37 @@ import "../styles/App.scss";
 
 function Header() {
   return (
-    <header class="header">
-      <a href="https://adalab.es/" target="_blank" title="Adalab">
-        <img
-          class="logo"
-          src="../images/adalab-logo-155x61.png"
-          alt="Logo de adalab"
+    <div>
+      <header className="header">
+        <a
+          href="https://adalab.es/"
+          rel="noreferrer"
+          target="_blank"
           title="Adalab"
-        />
-      </a>
-      <nav>
-        <ul class="nav-bar">
-          <li>
-            <a className="link" href="#" title="Blog">
-              Blog
-            </a>
-          </li>
-          <li>
-            <a className="link" href="#" title="Contacto">
-              Contacto
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+        >
+          <img
+            className="logo"
+            src="../images/adalab-logo-155x61.png"
+            alt="Logo de adalab"
+            title="Adalab"
+          />
+        </a>
+        <nav>
+          <ul className="nav-bar">
+            <li>
+              <a className="link" href="https://adalab.es/blog/" title="Blog">
+                Blog
+              </a>
+            </li>
+            <li>
+              <a className="link" href="./contact" title="Contacto">
+                Contacto
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
   );
 }
 
