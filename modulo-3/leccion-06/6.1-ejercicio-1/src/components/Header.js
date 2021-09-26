@@ -1,5 +1,6 @@
 //import { useState } from "react";
 import "../styles/App.scss";
+import adalabLogo from "../images/adalab-logo-155x61.png";
 //import initialData from "../data/contacts.json";
 
 function Header() {
@@ -14,7 +15,7 @@ function Header() {
         >
           <img
             className="logo"
-            src="../images/adalab-logo-155x61.png"
+            src={adalabLogo}
             alt="Logo de adalab"
             title="Adalab"
           />
