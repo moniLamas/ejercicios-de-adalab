@@ -1,0 +1,20 @@
+.lema {
+  width: 240px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: capitalize;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    line-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .lema h1 {
+      width: 300px;
+    }
+  }
+}

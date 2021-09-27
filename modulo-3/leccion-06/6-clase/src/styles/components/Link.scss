@@ -1,0 +1,8 @@
+.link {
+  text-decoration: none;
+  color: var(--gray-color);
+  padding: 0px 10px 13px 10px;
+  @media screen and (min-width: 768px) {
+    padding: 20px 10px;
+  }
+}
