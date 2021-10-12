@@ -1,76 +1,76 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
 // components
-import Login from './Login';
-import ContactList from './ContactList';
-import ContactDetail from './ContactDetail';
-import Filters from './Filters';
+import Login from "./Login";
+import ContactList from "./ContactList";
+import ContactDetail from "./ContactDetail";
+import Filters from "./Filters";
 // services
-import getApiData from '../services/api';
-import ls from '../services/local-storage';
+import getApiData from "../services/api";
+import ls from "../services/local-storage";
 
 const App = () => {
   // state
-  const cachedContacts = ls.get('contacts', []);
+  const cachedContacts = ls.get("contacts", []);
 
-  const [userId, setUserId] = useState('');
-  const [loginError, setLoginError] = useState('');
+  const [userId, setUserId] = useState("");
+  const [loginError, setLoginError] = useState("");
 
   const [contacts, setContacts] = useState(cachedContacts);
-  const [filterName, setFilterName] = useState(ls.get('filterName', ''));
-  const [filterGender, setFilterGender] = useState(ls.get('filterGender', ''));
-  const [filterCities, setFilterCities] = useState(ls.get('filterCities', []));
+  const [filterName, setFilterName] = useState(ls.get("filterName", ""));
+  const [filterGender, setFilterGender] = useState(ls.get("filterGender", ""));
+  const [filterCities, setFilterCities] = useState(ls.get("filterCities", []));
 
   // effects
 
   useEffect(() => {
     if (cachedContacts.length === 0) {
-      getApiData().then(contactsData => {
+      getApiData().then((contactsData) => {
         setContacts(contactsData);
       });
     }
   }, [cachedContacts.length]);
 
   useEffect(() => {
-    ls.set('contacts', contacts);
+    ls.set("contacts", contacts);
   }, [contacts]);
 
   useEffect(() => {
-    ls.set('contacts', contacts);
-    ls.set('filterName', filterName);
-    ls.set('filterGender', filterGender);
-    ls.set('filterCities', filterCities);
+    ls.set("contacts", contacts);
+    ls.set("filterName", filterName);
+    ls.set("filterGender", filterGender);
+    ls.set("filterCities", filterCities);
   }, [contacts, filterName, filterGender, filterCities]);
-
 
   // event handlers
 
-  const handleLogin = data => {
-
+  const handleLogin = (data) => {
     // Lanzar una petición al API
 
-    fetch(`http://localhost:3000/login?email=${data.email}&passwd=${data.password}`)
-    .then((response) => response.json())
-    .then((dataLogin) => {
-      console.log( dataLogin );
-      if( dataLogin.error ) {
-        setLoginError(dataLogin.error);
-      }
-      else {
-        setUserId(dataLogin.userId);
-      }
-    });
-   
+    fetch(
+      `http://localhost:3000/login?email=${data.email}&pass=${data.password}`
+    )
+      .then((response) => response.json())
+      .then((dataLogin) => {
+        console.log(dataLogin);
+        if (dataLogin.error) {
+          setLoginError(dataLogin.error);
+        } else {
+          setUserId(dataLogin.userId);
+        }
+      });
   };
 
-  const handleFilter = data => {
-    if (data.key === 'name') {
+  const handleFilter = (data) => {
+    if (data.key === "name") {
       setFilterName(data.value);
-    } else if (data.key === 'gender') {
+    } else if (data.key === "gender") {
       setFilterGender(data.value);
-    } else if (data.key === 'city') {
+    } else if (data.key === "city") {
       if (filterCities.includes(data.value)) {
-        const newFilterCities = filterCities.filter(city => city !== data.value);
+        const newFilterCities = filterCities.filter(
+          (city) => city !== data.value
+        );
         setFilterCities(newFilterCities);
       } else {
         filterCities.push(data.value);
@@ -82,18 +82,18 @@ const App = () => {
   // render
 
   const filteredContacts = contacts
-    .filter(contact => {
+    .filter((contact) => {
       return contact.name.toLowerCase().includes(filterName.toLowerCase());
     })
-    .filter(contact => {
-      if (filterGender === '') {
+    .filter((contact) => {
+      if (filterGender === "") {
         return true;
       } else {
         return contact.gender === filterGender;
       }
       // return filterGender === '' ? true : contact.gender === filterGender
     })
-    .filter(contact => {
+    .filter((contact) => {
       if (filterCities.length === 0) {
         return true;
       } else {
@@ -101,9 +101,9 @@ const App = () => {
       }
     });
 
-  const renderContactDetail = props => {
+  const renderContactDetail = (props) => {
     const routeContactId = props.match.params.contactId;
-    const foundContact = contacts.find(contact => {
+    const foundContact = contacts.find((contact) => {
       return contact.id === routeContactId;
     });
 
@@ -115,38 +115,37 @@ const App = () => {
   };
 
   const getCities = () => {
-    const contactCities = contacts.map(contact => contact.city);
+    const contactCities = contacts.map((contact) => contact.city);
     let uniqueCities = [...new Set(contactCities)];
     return uniqueCities;
   };
 
   return (
     <>
-      { (userId === '')
-      ?
-      <Login handleLogin={handleLogin} loginError={loginError}/>
-      :
-      <Switch>
-        <Route exact path="/">
-          <>
-            <header className="header">
-              <h1 className="title--big">Directorio de personas</h1>
-            </header>
-            <div className="col2">
-              <Filters
-                filterName={filterName}
-                filterGender={filterGender}
-                filterCities={filterCities}
-                cities={getCities()}
-                handleFilter={handleFilter}
-              />
-              <ContactList contacts={filteredContacts} />
-            </div>
-          </>
-        </Route>
-        <Route path="/contact/:contactId" render={renderContactDetail} />
-      </Switch>
-      }
+      {userId === "" ? (
+        <Login handleLogin={handleLogin} loginError={loginError} />
+      ) : (
+        <Switch>
+          <Route exact path="/">
+            <>
+              <header className="header">
+                <h1 className="title--big">Directorio de personas</h1>
+              </header>
+              <div className="col2">
+                <Filters
+                  filterName={filterName}
+                  filterGender={filterGender}
+                  filterCities={filterCities}
+                  cities={getCities()}
+                  handleFilter={handleFilter}
+                />
+                <ContactList contacts={filteredContacts} />
+              </div>
+            </>
+          </Route>
+          <Route path="/contact/:contactId" render={renderContactDetail} />
+        </Switch>
+      )}
     </>
   );
 };
