@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const Database = require('better-sqlite3');
+const express = require("express");
+const cors = require("cors");
+const Database = require("better-sqlite3");
 
 // create server
 const app = express();
@@ -16,22 +16,24 @@ app.listen(serverPort, () => {
 });
 
 // static server
-const staticServerPath = './public';
+const staticServerPath = "./public";
 app.use(express.static(staticServerPath));
 
 // init and config data base
-const db = new Database('./src/database.db', {
+const db = new Database("./src/database.db", {
   // comment next line to hide data base logs in console
-  verbose: console.log
+  verbose: console.log,
 });
 
 // api endpoints
 
-app.post('/user', (req, res) => {
+app.post("/user", (req, res) => {
   // get current date
   const date = new Date().toISOString();
   // add user to data base
-  const query = db.prepare(`INSERT INTO users (createdAt, email, password) VALUES(?, ?, ?)`);
+  const query = db.prepare(
+    `INSERT INTO users (createdAt, email, password) VALUES(?, ?, ?)`
+  );
   // run query
   console.log(req.body);
   const queryResult = query.run(
@@ -44,7 +46,16 @@ app.post('/user', (req, res) => {
   );
   // response
   res.json({
-    result: 'User created',
-    userId: queryResult.lastInsertRowid
+    result: "User created",
+    userId: queryResult.lastInsertRowid,
   });
+});
+
+// creamos el endpoint /users de tipo GET
+app.get("/users", (req, res) => {
+  // preparamos y ejecutamos la query
+  const query = db.prepare("SELECT * FROM users");
+  const users = query.all();
+  // respondemos a la petición con los datos que ha devuelto la base de datos
+  res.json(users);
 });
